@@ -1,7 +1,4 @@
 FROM ghost:latest
-
 WORKDIR /var/lib/ghost
-
-RUN npm install ghost-storage-adapter-s3 \
-    && mkdir -p /var/lib/ghost/content/adapters \
-    && cp -vr ./node_modules/ghost-storage-adapter-s3 /var/lib/ghost/current/core/server/adapters/s3
+RUN npm install -g ghost-storage-adapter-s3 && \
+	ln -s /usr/local/lib/node_modules/ghost-storage-adapter-s3 ./current/core/server/adapters/storage/s3
